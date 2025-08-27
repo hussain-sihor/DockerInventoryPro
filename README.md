@@ -1,6 +1,6 @@
 # InventoryPro
 
-**Status:** Under Development
+**Demo:** https://inventoryproo.vercel.app/
 
 ## Overview
 
