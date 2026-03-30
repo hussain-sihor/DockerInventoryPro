@@ -31,7 +31,8 @@ services:
     networks:
       - inventory
     depends_on : 
-      - mongodb
+      mongodb:
+        condition: service_healthy
     restart: always
     healthcheck:
       test: ["CMD", "curl" , "-f" , "http://localhost:5000/health" ]
@@ -48,9 +49,10 @@ services:
       - "5173:80"
     restart: always
     depends_on:
-      - nodejs
+      nodejs:
+        condition: service_healthy
     healthcheck:
-      test: ["CMD" , "curl" , "-f" , "http://localhost:5173"]
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:80"]
       interval: 10s
       timeout: 5s
       retries: 5

@@ -32,7 +32,10 @@ app.use("/api/reminders",authMiddleware,require("./routes/reminderRoute"));
 
 app.get("/",(req,res)=>{
   res.status(200).send("Hello...");
+})
 
+app.get("/health",(req,res)=>{
+  res.status(200).send("OK");
 })
 
 
